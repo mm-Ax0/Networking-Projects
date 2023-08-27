@@ -1,0 +1,33 @@
+
+--General Notes--
+
+2 campuses (Main & Smaller Campus)]
+
+4 facilies( Science, Buisness, engineering, design) 
+implement GRE Tunneling - logically connect the two sites together over the internet.
+ 
+Collapsed Core design (core + Distribution & Access Layer)
+A level of redundancy @ main campus 
+
+
+
+--Main campus-- 
+Building A (Buisness Vlan)
+Building B ( Engineering vlan , design vlan)
+Building C (IT vlan, hosts the university web server) 
+Internally hosted website (intranet)
+
+--Smaller(DT) campus--
+Building 1 ( Science ) , separate vlans for student and staff
+RIPv2 is the preferred routing protocol.
+Configure intervlan routing using SVIs
+
+--Additional Notes-- 
+
+VTP implemented
+	VTPdomain = main.campus
+--Ip scheme for main Campus 
+192.168.1.0/26 -> vlan 10 (255.255.255.192)
+192.168.1.64/26 -> vlan 20 
+192.168.1.128/26 -> vlan 30
+192.168.1.192/26 -> vlan 40
